@@ -9,6 +9,7 @@ public class Main {
 		EntityManager entityManager = PersistenceUnit.getInstance().getEntityManager();
 		if (entityManager.isOpen()) {
 			System.out.println("'-'");
+			entityManager.close();
 		}
 	}
 }
