@@ -13,5 +13,6 @@ public class PersistenceUnitTest {
 	public void givenAValidPersistence_whenCreateEntityManagerFactory_thenReturnEntityManager() {
 		EntityManager entityManager = PersistenceUnit.getInstance().getEntityManager(); 
 		Assertions.assertThat(entityManager).isNotNull();
+		entityManager.close();
 	}
 }
