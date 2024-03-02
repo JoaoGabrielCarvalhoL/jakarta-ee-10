@@ -1,0 +1,23 @@
+
+services:
+
+  postgres-db:
+    image: 'postgres:latest'
+    restart: always
+    environment:
+      POSTGRES_USER: development
+      POSTGRES_PASSWORD: development
+      POSTGRES_DB: studies
+    ports:
+      - '5434:5432'
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@pgadmin.com
+      PGADMIN_DEFAULT_PASSWORD: admin@password
+    ports:
+      - '15434:80'
+    depends_on:
+      - postgres-db
